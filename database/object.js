@@ -16,7 +16,11 @@ module.exports = class {
             await client.connect()
             const response = await client.query(this.query)
             return new Promise((resolve, reject) => {
-                resolve(response.rows)
+                try {
+                    resolve(response.rows)
+                } catch (e) {
+                    reject(e)
+                }
             })
         } catch (e) {
             return e
