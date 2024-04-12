@@ -1,0 +1,32 @@
+{
+  "name": "api-express",
+  "version": "1.0.0",
+  "description": "Api para estudos em verbos http.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyArtur/Laboratorio-04-Node-Express.git"
+  },
+  "keywords": [
+    "api",
+    "espress",
+    "postgresql"
+  ],
+  "author": "Artur dos Santos Shon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkyArtur/Laboratorio-04-Node-Express/issues"
+  },
+  "homepage": "https://github.com/SkyArtur/Laboratorio-04-Node-Express#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http": "^0.0.1-security",
+    "pg": "^8.11.5"
+  }
+}
