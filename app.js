@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path')
 const app = express()
 
-app.set('views', path.join(__dirname, ''))
+
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
