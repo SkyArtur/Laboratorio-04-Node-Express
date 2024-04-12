@@ -4,7 +4,7 @@
   "description": "Api para estudos em verbos http.",
   "main": "app.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest ./__tests__",
     "start": "node ./bin/www"
   },
   "repository": {
@@ -28,5 +28,8 @@
     "express": "^4.19.2",
     "http": "^0.0.1-security",
     "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

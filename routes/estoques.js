@@ -17,7 +17,7 @@ router.get('/:nome', (req, res) => {
 router.post('/', (req, res) => {
     database.setQuery(
         'SELECT * FROM registrar_produto_no_estoque($1, $2, $3, $4, $5);',
-        [req.body.produto, req.body.quantidade, req.body.custo, req.body.lucro]
+        [req.body.produto, req.body.quantidade, req.body.custo, req.body.lucro, req.body.data]
     )
     database.execute()
         .then(result => res.json(result))
