@@ -1,0 +1,17 @@
+.idea
+
+node_modules
+
+__tests__
+
+.gitignore
+
+LICENSE
+
+README.md
+
+docker-compose.yaml
+
+docker
+
+.dockerignore

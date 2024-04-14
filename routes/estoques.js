@@ -6,12 +6,14 @@ router.get('/', (req, res) => {
     database.setQuery('SELECT * FROM selecionar_produto_em_estoque();')
     database.execute()
         .then(result => res.json(result))
+        .catch(console.error)
 })
 
 router.get('/:nome', (req, res) => {
     database.setQuery('SELECT * FROM selecionar_produto_em_estoque($1);', [req.params.nome])
     database.execute()
         .then(result => res.json(result))
+        .catch(console.error)
 })
 
 router.post('/', (req, res) => {
@@ -21,6 +23,7 @@ router.post('/', (req, res) => {
     )
     database.execute()
         .then(result => res.json(result))
+        .catch(console.error)
 })
 router.put('/:nome', (req, res) => {
     database.setQuery(
@@ -29,12 +32,14 @@ router.put('/:nome', (req, res) => {
     )
     database.execute()
         .then(result => res.json(result))
+        .catch(console.error)
 })
 
 router.delete('/:nome', (req, res) => {
     database.setQuery('SELECT * FROM deletar_produto($1);', [req.params.nome])
     database.execute()
         .then(result => res.json(result))
+        .catch(console.error)
 })
 
 module.exports = router

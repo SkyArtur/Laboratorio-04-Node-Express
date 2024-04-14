@@ -1,0 +1,56 @@
+version: "2"
+services:
+  apiExpress:
+    build:
+      context: .
+      dockerfile: docker/node.dockerfile
+    container_name: apiExpress
+    image: lab-04-node:v1
+    restart: always
+    volumes:
+      - apiExpressNode:/home/node/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - dbApiExpress
+    networks:
+      - apiNet
+
+  dbApiExpress:
+    build:
+      context: .
+      dockerfile: docker/postgres.dockerfile
+    container_name: dbApiExpress
+    image: lab-04-postgres:v1
+    hostname: postgres
+    restart: always
+    ports:
+      - "5432"
+    volumes:
+      - apiExpressPostgres:/var/lib/postgresql/data/
+    networks:
+      - apiNet
+
+  apiExpressPgAdmin4:
+    build:
+      context: .
+      dockerfile: docker/pgadmin.dockerfile
+    container_name: apiExpressPgAdmin4
+    image: lab-04-pgadmin:v1
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - apiExpressPgAdmin:/var/lib/pgadmin
+    networks:
+      - apiNet
+
+volumes:
+  apiExpressNode:
+  apiExpressPostgres:
+  apiExpressPgAdmin:
+
+
+networks:
+  apiNet:
+    driver: 'bridge'
