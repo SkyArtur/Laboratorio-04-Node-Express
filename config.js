@@ -1,4 +1,4 @@
-const database = require("./database").connect()
+const database = require("./database").connector()
 const fs = require("fs")
 const path = require("path")
 

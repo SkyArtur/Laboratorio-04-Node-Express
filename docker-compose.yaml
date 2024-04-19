@@ -6,7 +6,6 @@ services:
       dockerfile: docker/node.dockerfile
     container_name: apiExpress
     image: lab-04-node:v1
-    restart: always
     volumes:
       - apiExpressNode:/home/node/app
     ports:
@@ -23,7 +22,6 @@ services:
     container_name: dbApiExpress
     image: lab-04-postgres:v1
     hostname: postgres
-    restart: always
     ports:
       - "5432"
     volumes:
@@ -37,7 +35,6 @@ services:
       dockerfile: docker/pgadmin.dockerfile
     container_name: apiExpressPgAdmin4
     image: lab-04-pgadmin:v1
-    restart: always
     ports:
       - "5050:80"
     volumes:

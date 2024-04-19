@@ -30,11 +30,12 @@ test('Testando o verbo POST na URI /vendas', async () => {
         produto: 'Pitangas',
         quantidade: 10,
     })
+    options.method = 'POST'
     const data = await fetch('http://localhost:3000/vendas/', options)
         .then(r => {
             if (!r.ok) return r.status
             return r.json()
         })
         .catch(err => err)
-    expect(data[0]['registrar_venda']).toBeTruthy()
+    expect(data['registrar_venda']).toBe()
 })

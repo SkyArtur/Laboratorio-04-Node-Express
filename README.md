@@ -109,7 +109,6 @@ a:hover {
 Também não há nada de muito elaborado em nossa folha de estilo. O foco no nosso projeto é simplesmente fornece uma API de 
 acesso ao nosso banco de dados via rede e esta página servirá apenas como auxíliar.
 
-
 ```javascript
 const bodyParser = require('body-parser')
 const express = require('express')
@@ -118,16 +117,15 @@ const app = express()
 
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-
 const routerIndex = require('./routes/index')
 const routerEstoque = require("./routes/estoques");
-const routerProdutos = require("./routes/produtos");
-const routerVendas = require("./routes/vendas");
+const routerProdutos = require("./produtos");
+const routerVendas = require("./vendas");
 
 app.use('/', routerIndex)
 app.use('/estoque', routerEstoque)

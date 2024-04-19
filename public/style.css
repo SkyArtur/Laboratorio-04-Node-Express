@@ -23,6 +23,9 @@
     flex-direction: column;
     padding: 25px;
     line-height: 45px;
+    width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
 }
 a {
     text-decoration: none;

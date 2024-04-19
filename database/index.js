@@ -1,21 +1,44 @@
-const Connection = require('./object')
+const {Client} = require("pg");
 require('dotenv').config()
 
 
-const params = null
+class Connector {
+    constructor(params) {
+        this.params = params ?? {connectionString: process.env.CONNECTION_STRING_DEVELOPMENT}
+    }
+    async execute(query) {
+        const client = new Client(this.params)
+        try {
+            await client.connect()
+            const response = await client.query(query)
+            return new Promise((resolve, reject) => {
+                try {
+                    resolve(response.rows)
+                } catch (e) {
+                    reject(e)
+                }
+            })
+        } catch (e) {
+            return e
+        } finally {
+            await client.end()
+        }
+    }
+}
 
 module.exports = (() => {
     let instance
-    function create_instance() {
-        return new Connection(params ?? {connectionString: process.env.CONNECTION_STRING})
+    function create_instance(params) {
+        return new Connector(params)
     }
     return {
-        connect: function () {
+        connector: function (params) {
             if (!instance) {
-                instance = create_instance()
+                instance = create_instance(params)
             }
             return instance
         }
     }
 })()
+
 
