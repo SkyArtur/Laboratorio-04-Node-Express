@@ -1,6 +1,6 @@
 # Laboratório 04 - Criando uma API com express JS.
 
->> Em Edição
+> Em Edição
 
 <hr />
 
