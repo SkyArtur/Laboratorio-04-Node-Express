@@ -1,5 +1,7 @@
 # Laboratório 04 - Criando uma API com express JS.
 
+>> Em Edição
+
 <hr />
 
 Chegamos a um momento em que temos um banco de dados e um método para nos conectarmos com esse banco de dados. Agora, 
